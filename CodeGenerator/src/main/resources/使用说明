@@ -1,4 +1,4 @@
-application.properties中配置
+﻿application.properties中配置
 1. 数据源
 2. 修改dao、service、serviceimpl、model、controller包路径
 3. 默认开启了swagger，可以关闭
@@ -11,6 +11,7 @@ application.properties中配置
     service/Service.java            业务层接口模板
     service/impl/ServiceImpl.java   业务层接口实现类模板
     swagger/swagger.json            Swagger文档模板
+    result/*.java		    两个工具类
 
   注意：模板的配置遵循Freemarker指令规范。
 
@@ -31,8 +32,21 @@ application.properties中配置
 
 6. 多条件搜索时，如果属性名字包含name、title，则会进行like模糊搜索
 
-7. pom.xml文件中已经导入的需要用到的依赖包，开发者可以直接使用
+使用方法：
 
-8. 当开启了Swagger之后，将com.pkx.code.config包下的SwaggerConfig类拷贝到
+1. 修改application.properties文件中相关配置，然后运行CodeApplication类的main方法，生成代码
+
+2. 将生成的包直接复制到你的项目中去
+
+3. pom.xml文件中已经导入的需要用到的依赖包，开发者可以直接使用
+
+4. 将application.yml文件也复制到你的项目的resource目录下，修改相关配置
+
+5. 当开启了Swagger之后，将com.pkx.code.config包下的SwaggerConfig类拷贝到
    项目下与启动类XxxApplication同级包或其子包下，修改xxx.yyy.controller包名修改为真实包名即可，
    运行启动类之后，即可通过浏览器访问：http://项目真实访问地址/swagger-ui.html 查看Swagger生成的API接口
+
+PS: 有一个小问题，就是表名中不能包含"result"这个字符串！因为和result包冲突:)
+
+
+
