@@ -4,5 +4,6 @@
 3、修改了pom文件，添加了spring-test依赖，修改spring-boot-starter-parent版本号为2.4.5，现在的pem文件可直接覆盖目标文件；
 4、添加了resource文件夹下的配置文件application.yml文件（模板）
 5、存在一个问题，就是表名中不能包含"result"这个字符串！因为和result包冲突:)
+6、表必须要有主键，否则会报错；
 
 
